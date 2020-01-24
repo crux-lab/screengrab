@@ -1,8 +1,8 @@
 # ScreenGrab 
-![Build status](https://ci-tc.cruxlab.net/app/rest/builds/buildType:(id:ScreenGrab_Build)/statusIcon.svg)
+[![Build status](https://ci-tc.cruxlab.net/app/rest/builds/buildType:(id:ScreenGrab_Build)/statusIcon.svg)](https://ci-tc.cruxlab.net/viewType.html?buildTypeId=ScreenGrab_Build&guest=1)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=crux-lab_screengrab&metric=alert_status)](https://sonarcloud.io/dashboard?id=crux-lab_screengrab)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=crux-lab_screengrab&metric=coverage)](https://sonarcloud.io/dashboard?id=crux-lab_screengrab)
-![npm](https://img.shields.io/npm/v/screengrab)
+[![npm](https://img.shields.io/npm/v/screengrab)](https://www.npmjs.com/package/screengrab)
 
 > ScreenGrab is a command line tool to create multiple website screenshots in bulk.
 
