@@ -1,0 +1,56 @@
+#!/usr/bin/env node
+/**
+ * Copyright 2020 Cruxlab, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+const program = require('commander');
+
+const ScreenGrab = require('../lib/screengrab');
+const parseConfig = require('../lib/configparser');
+
+program
+    .requiredOption('-c, --config <file>', 'Path to the config file')
+    .option('-o --output <dir>', 'Save files to folder');
+
+program.parse(process.argv);
+
+const run = async () => {
+    let config;
+    try {
+        config = await parseConfig(program.config);
+    } catch (e) {
+        console.error(e.message);
+    }
+
+    if (program.output) {
+        config.output = program.output;
+    }
+
+    if (config.output === undefined) {
+        config.output = process.cwd();
+    }
+
+    const screenGrab = new ScreenGrab(config);
+
+    try {
+        await screenGrab.createScreenshots();
+    } catch (e) {
+        console.error(e.message);
+    }
+};
+
+run().catch((e) => {
+    console.error(e.message);
+});

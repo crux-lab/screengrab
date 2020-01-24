@@ -1,0 +1,12 @@
+baseUrl: "http://localhost:4000"
+paths:
+  - /
+  - test
+sizes:
+  - width: 320
+    height: 480
+    density: 1
+  - width: 320
+    density: 2
+batchSize: -1
+output: screens

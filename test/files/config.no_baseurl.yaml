@@ -1,0 +1,10 @@
+paths:
+  - /
+  - test
+sizes:
+  - width: 320
+    height: 480
+    density: 1
+  - width: 320
+    density: 2
+output: screens

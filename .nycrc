@@ -1,0 +1,15 @@
+{
+  "all": true,
+  "check-coverage": true,
+  "include": [
+    "lib/**"
+  ],
+  "exclude": [
+    "**/*.spec.js"
+  ],
+  "reporter": [
+    "lcov",
+    "text"
+  ],
+  "cache": true
+}

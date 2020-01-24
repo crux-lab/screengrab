@@ -1,0 +1,8 @@
+{
+  "check-leaks": true,
+  "package": "./package.json",
+  "reporter": "mocha-multi",
+  "timeout": 10000,
+  "ui": "bdd",
+  "reporter-options": "spec=-,mocha-junit-reporter=test-results.xml,mocha-sonarqube-reporter=xunit.xml"
+}
