@@ -27,7 +27,7 @@ describe('ScreenGrab E2E', () => {
     describe('.createScreenshots', () => {
         const config = {
             baseUrl: `file://${__dirname}/../files/`,
-            paths: ['test.html'],
+            paths: ['test.html', '/'],
             output: `${__dirname}/../tmp/`,
             sizes: [{
                 width: 320,
@@ -38,6 +38,7 @@ describe('ScreenGrab E2E', () => {
         };
 
         const expectedFilename = "test.html_320_100@2x.png";
+        const expectedIndexFilename = "index_320_100@2x.png";
 
         let screenGrab = null;
 
@@ -51,6 +52,12 @@ describe('ScreenGrab E2E', () => {
             const buf = fs.readFileSync(`${config.output}/${expectedFilename}`);
             const screenshot = PNG.sync.read(buf);
             expect(screenshot.width).to.equal(640);
+        });
+
+        it('should set filename to "index" for /', async () =>{
+            screenGrab = new ScreenGrab(config);
+            await screenGrab.createScreenshots();
+            expect(fs.existsSync(`${config.output}/${expectedIndexFilename}`)).to.be.true;
         });
 
         context('if folder doesn\'t exist', () => {
