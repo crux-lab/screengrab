@@ -46,6 +46,9 @@ output: screenshots #optional, path to the folder to save screenshots, default =
 batchSize: 3 #optional, indicates number of screenshots done in parallel
 ```
 
+Note that the `height` parameter is used only to set the browser viewport. ScreenGrab will always make full page screenshots.
+Also, the names of the generated files will include the viewport spec, not the actual page size. 
+
 ### Parallel execution
 
 The `batchSize` parameter allows to specify number of screenshots done in parallel. 
